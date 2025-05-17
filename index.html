@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geokels</title>
+</head>
+<body>
+    
+</body>
+</html>
+    <style>
+     /* --- Modern Framer-inspired E-commerce Styles --- */
+
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  background: linear-gradient(120deg, #f8fafc 0%, #e0e7ef 100%);
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  padding: 15px 20px;
+  border-radius: 0 0 10px 10px;
+}
+
+.logo img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.welcome-banner {
+  width: 100vw;
+  margin: 0;
+  padding: 15px 0;
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  background: linear-gradient(90deg, #e0e7ef 100%, #e0e7ef 100%);
+  border-radius: 0 0 14px 14px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+   animation: sparkle 2s infinite;
+}
+ @keyframes sparkle {
+        0%, 100% {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 2px 2px 4px rgba(0, 0, 0, 0.3),2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        50% {
+            text-shadow:2px 2px 4px rgba(170, 209, 231, 0.4), 2px 2px 4px rgba(170, 209, 231, 0.4), 2px 2px 4px rgba(170, 209, 231, 0.4);
+        }
+    }
+.search-bar input {
+  width: 700px;
+  max-width: 90vw;
+  padding: 12px 18px;
+  border: 1.5px solid #e0e7ef;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #f8fafc;
+  transition: border 0.2s;
+}
+.search-bar input:focus {
+  border: 1.5px solid #0aa5e2;
+  outline: none;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.icons img {
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: box-shadow 0.2s;
+}
+.icons img:hover {
+  box-shadow: 0 2px 8px #0aa5e233;
+}
+#cart-count {
+  background: #0aa5e2;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 5px 10px;
+  margin-left: 5px;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+  padding: 32px 0;
+}
+
+.product-item {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150px;
+  padding: 6;
+  margin: 15px;
+  transition: opacity 0.3s ease; /* Smooth transition for hiding/showing */
+}
+.product-item:hover {
+  box-shadow: 0 4px 24px #0aa5e233;
+  transform: translateY(-4px) scale(1.03);
+}
+.product-item img {
+  width: 100%;
+  height: auto;
+   max-height: 200px; /* Restricts image height */
+   object-fit: cover; /* Ensures the image scales properly */
+  border-radius: 10px;
+  margin-bottom: 16px;
+}
+.product-item p {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #0aa5e2;
+  margin: 10px 0 8px 0;
+}
+.product-item button {
+  background: linear-gradient(90deg, #0aa5e2 0%, #0a7be2 100%);
+  color: #fff;
+  border: none;
+  padding: 12px 0;
+  width: 100%;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px #0aa5e233;
+}
+.product-item button:hover {
+  background: linear-gradient(90deg, #0a7be2 0%, #0aa5e2 100%);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(30, 41, 59, 0.35);
+  backdrop-filter: blur(2px);
+}
+
+.modal-content {
+  background: #fff;
+  color: #1a1a1a;
+  margin: 5% auto;
+  padding: 32px 24px;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  width: 90%;
+  max-width: 480px;
+  position: relative;
+}
+
+.modal-content h2 {
+  color: #0aa5e2;
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+#cart-items {
+  max-height: 320px;
+  overflow-y: auto;
+  padding: 10px 0;
+  margin-bottom: 18px;
+  scrollbar-width: thin;
+  scrollbar-color: #0aa5e2 #e0e7ef;
+}
+#cart-items::-webkit-scrollbar {
+  width: 8px;
+}
+#cart-items::-webkit-scrollbar-thumb {
+  background: #0aa5e2;
+  border-radius: 4px;
+}
+#cart-items::-webkit-scrollbar-thumb:hover {
+  background: #0a7be2;
+}
+
+#cart-total {
+  color: #0aa5e2;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-align: right;
+  margin-bottom: 18px;
+}
+
+#checkout-btn {
+  padding: 12px 0;
+  background: linear-gradient(90deg, #0aa5e2 0%, #0a7be2 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  width: 100%;
+  font-weight: 700;
+  transition: background 0.2s;
+}
+#checkout-btn:hover {
+  background: linear-gradient(90deg, #0a7be2 0%, #0aa5e2 100%);
+}
+
+.close {
+  color: #0aa5e2;
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.close:hover,
+.close:focus {
+  color: #0a7be2;
+  text-decoration: none;
+}
+
+@media (max-width: 1000px) {
+  .welcome-banner {
+    font-size: 1.2rem;
+    padding: 40px 0;
+    border-radius: 0 0 18px 18px;
+  }
+  .content {
+    gap: 16px;
+    padding: 12px 0;
+  }
+}
+  
+  .product-item {
+    width: 75vw;
+    max-width: 320px;
+    padding: 10px 4px;
+  }
+  
+  .modal-content {
+    padding: 10px 4px;
+  }
+.hero-section {
+  display: flex;
+  width: 100vw;
+  height: 700px; /* or 100vh for full screen */
+  overflow: hidden;
+}
+
+.video-background,
+.hero-content {
+  flex: 1 1 50%;    /* Make both take up 50% of the hero-section */
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255,255,255,0.85); /* Optional: match backgrounds */
+}
+
+.video-background video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-content img {
+  width: 100%;
+  max-width: 400px;
+  height: 110%;         /* Responsive height */
+  object-fit: cover;
+  border-radius: 16px;
+  margin-top: 50;
+  align-self: center;
+}
+/* Footer Styles */
+.site-footer {
+  background: #0aa5e2;
+  color: #fff;
+  padding: 48px 0 24px 0;
+  border-radius: 24px 24px 0 0;
+  margin-top: 48px;
+}
+
+.site-footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 50px;
+  padding: 0 24px;
+}
+
+.site-footer-section {
+  flex: 1 1 220px;
+  min-width: 180px;
+}
+
+.site-footer-section h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.site-footer-section p {
+  line-height: 1.7;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.site-footer-section ul {
+  list-style: none;
+  padding: 0;
+  font-size: 1rem;
+}
+/* Space out footer list items */
+.site-footer-section ul li {
+  margin-bottom: 12px;
+}
+
+.site-footer-section a {
+  color: #fff;
+  transition: color 0.2s;
+}
+
+.site-footer-section a:hover {
+  color: #e0e7ef;
+}
+
+.site-footer-social {
+  display: flex;
+  gap: 25px;
+  margin-top: 8px;
+}
+
+.site-footer-bottom {
+  text-align: center;
+  margin-top: 32px;
+  font-size: 0.95rem;
+  color: #e0e7ef;
+}
+/* Footer Social Media Icon Styles */
+.site-footer-social a,
+.site-footer-social img {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  color: #0aa5e2;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px #0aa5e233;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.site-footer-social img {
+  object-fit: cover;
+  padding: 4px;
+}
+
+.site-footer-social a:hover,
+.site-footer-social img:hover {
+  background: #0aa5e2;
+  color: #fff;
+  box-shadow: 0 4px 16px #0aa5e299;
+}
+
+
+    </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="Geokels.png" alt="Company Logo">
+    </div>
+    <div class="search-bar">
+      <input type="text" id="search" placeholder="Search for clothing...">
+    </div>
+    <div class="icons">
+      <div class="cart-icon" onclick="openCart()"></div>
+      <img src="Cartlogo.png" alt="Cart" title="View Cart" onclick="openCart()">
+      <span id="cart-count">0</span>
+      <i class="fas fa-user user-icon"></i>
+    </div>
+  </header>
+  <div class="welcome-banner">
+    Welcome to Geokels Clothing
+  </div>
+  <div class="hero-section"id="heroSection">
+  <div class="video-background">
+    <video autoplay loop muted playsinline>
+      <source src="./model video.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero-content">
+    <img src="./Photo1.png" alt="hero-content">
+</div>
+</div>
+      <!-- Product Items -->
+       <div class="content">
+      <div class="product-item">
+        <img src="./Sleeves5.jpg" alt="Sleeves5.jpg">
+        <p>Long Sleeves5 - ¢250</p>
+        <button onclick="addToCart('long sleeves', '250','Sleeves5.jpg')"> Add to Cart </button>
+      </div>
+      
+      <!-- ...other product items... -->
+      <div class="product-item">
+        <img src=".Sleeves4.jpg" alt="Sleeves4.jpg">
+        <p>Long Sleeve4 - ¢100</p>
+        <button onclick="addToCart('long sleeves','100','Sleeves4.jpg')"> Add to Cart </button>
+      </div>
+      <div class="product-item">
+        <img src="Sleeves3.jpg" alt="Sleeves3.jpg">
+        <p>Sleeves3 - ¢100</p>
+        <button onclick="addToCart('Shoe','100','Sleeves3.jpg')"> Add to Cart </button>
+      </div>
+      <div class="product-item">
+        <img src="Sleeves1.jpg" alt="Sleeves1.jpg">
+        <p>Sleeves1 - ¢100</p>
+        <button onclick="addToCart('Shoe','100','Sleeves1.jpg')"> Add to Cart </button>
+      </div>
+      <div class="product-item">
+        <img src="Shoe1.jpg" alt="Shoe1.jpg">
+        <p>Shoe1 - ¢100</p>
+        <button onclick="addToCart('Shoe','100','Shoe1.jpg')"> Add to Cart </button>
+      </div>
+      <div class="product-item">
+        <img src="Shoe2.jpg" alt="Shoe2.jpg">
+        <p>Shoe2 - ¢100</p>
+        <button onclick="addToCart('Shoe','100','Shoe2.jpg')"> Add to Cart </button>
+      </div>
+      <div class="product-item">
+        <img src="Shoe3.jpg" alt="Shoe3.jpg">
+        <p>Shoe3 - ¢100</p>
+        <button onclick="addToCart('Shoe','100','Shoe3.jpg')"> Add to Cart </button>
+      </div>
+      <!-- Add all your other product-item divs here -->
+    </div>
+  </div>
+  <!-- Account Modal -->
+  <div id="accountModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <!-- Login Form -->
+      <div id="loginForm">
+        <h2>Sign In</h2>
+        <form id="login" style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
+          <input type="email" id="loginEmail" placeholder="Email" required style="width: 80%; padding: 12px;">
+          <input type="password" id="loginPassword" placeholder="Password" required style="width: 80%; padding: 12px;">
+          <button type="submit" style="width: 50%; padding: 12px; background-color: green; color: white; border: none; border-radius: 4px; cursor: pointer;">
+            Sign In
+          </button>
+          <p style="text-align: center; margin-top: 10px;">
+            Don't have an account? 
+            <a href="#" onclick="showSignup()" style="margin-top: 10px; color: green;">Sign up</a>
+          </p>
+        </form>
+      </div>
+      <!-- Signup Form (hidden by default) -->
+      <div id="signupForm" style="display:none;">
+        <h2>Create Account</h2>
+        <form id="signup">
+          <div style="display: grid; gap: 15px; margin-bottom: 15px;">
+            <input type="text" id="signupName" placeholder="Full Name" required style="padding: 12px;">
+            <input type="email" id="signupEmail" placeholder="Email" required style="padding: 12px;">
+            <input type="password" id="signupPassword" placeholder="Password" required style="padding: 12px;">
+            <input type="password" id="signupConfirm" placeholder="Confirm Password" required style="padding: 12px;">
+          </div>
+          <div style="display: flex; justify-content: flex-end;">
+            <button type="submit" style="padding: 12px 24px; background-color: green; color: white; border: none; border-radius: 4px; cursor: pointer;">
+              Create Account
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- Cart Modal -->
+  <div id="cartModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeCart()">&times;</span>
+      <h2>Your Shopping Cart</h2>
+      <div id="cart-items">
+        <!-- Cart items will be dynamically inserted here -->
+      </div>
+      <div id="cart-total">Total: ¢0</div>
+      <button id="checkout-btn" onclick="goToCheckout()">Proceed to Checkout</button>
+    </div>
+  </div>
+  <script src="auth.JS"></script>
+  <script src="Open_Cart.JS"></script>
+  <script src="Search bar.JS"></script>
+  <footer class="site-footer">
+  <div class="site-footer-container">
+    <!-- About Us -->
+    <div class="site-footer-section">
+      <h3>About Us</h3>
+      <p>
+        Geokels Clothing is your go-to destination for the latest trends in fashion and footwear. We are committed to quality, style, and customer satisfaction.
+      </p>
+    </div>
+    <!-- Contact Us -->
+    <div class="site-footer-section">
+      <h3>Contact Us</h3>
+      <ul>
+        <li>Email: info@geokels.com</a></li>
+        <li>Phone: +1 234 567 890</a></li>
+        <li>Address: 123 Fashion Ave, Accra, Ghana</li>
+      </ul>
+    </div>
+    <!-- Quick Links -->
+    <div class="site-footer-section">
+      <h3>Quick Links</h3>
+      <ul>
+        <li>Shop</a></li>
+        <li>FAQ</a></li>
+        <li>Returns & Exchanges</a></li>
+        <li>Privacy Policy</a></li>
+      </ul>
+    </div>
+    <!-- Social Media -->
+    <div class="site-footer-section">
+      <h3>Follow Us</h3>
+      <div class="site-footer-social">
+        <img src="Facebook.png" aria-label="Facebook">
+        <img src="Instagram.png" aria-label="Instagram">
+        <img src="Tiktok.png" aria-label="Tiktok">
+        <img src="X.png" aria-label="X">
+        <img src="WhatsApp.png" WhatsApp="X">
+
+      </div>
+    </div>
+  </div>
+  <div class="site-footer-bottom">
+    &copy; 2025 Geokels Clothing. All rights reserved.
+  </div>
+</footer>
+</body>
+</html>
