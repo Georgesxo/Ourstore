@@ -4,53 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Geokels</title>
-</head>
-<body>
-    
-</body>
-</html>
     <style>
      /* --- Modern Framer-inspired E-commerce Styles --- */
 
 body {
-  font-family: 'Inter', Arial, sans-serif;
-  background: linear-gradient(120deg, #f8fafc 0%, #e0e7ef 100%);
-  color: #222;
-  margin: 0;
-  padding: 0;
-}
-
+            font-family: 'Inter', Arial, sans-serif;
+            background: linear-gradient(120deg, #f8fafc 0%, #e0e7ef 100%);
+            background-color: rgba(170, 209, 231, 0.4); /* This will show below the rounded footer */
+            color: #222;
+            margin: 0;
+            padding: 0;
+            padding-bottom: 60px; /* Prevent footer overlap */
+        }
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #fff;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-  padding: 15px 20px;
-  border-radius: 0 0 10px 10px;
+  background: #111827;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            position: sticky;           
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            transform: translateZ(0); 
+            height: 80px;
 }
+            .mobile-header {
+            display: none;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+        }
+
+        .hamburger {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 24px;
+            width: 30px;
+            padding: 0;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background: #0aa5e2;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: white;
+            width: 100%;
+        }
+
+        .desktop-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
 
 .logo img {
-  width: 48px;
-  height: 48px;
+  width: 2000px;
+  height: 100px;
   object-fit: contain;
 }
 
-.welcome-banner {
-  width: 100vw;
-  margin: 0;
-  padding: 15px 0;
-  text-align: center;
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #1a1a1a;
+
+    
+  .sticky-banner {
+  position: sticky;
+  top: 80px;
+  transform: translateZ(0); 
+  z-index: 999;
+  width: 101%;
   background: linear-gradient(90deg, #e0e7ef 100%, #e0e7ef 100%);
-  border-radius: 0 0 14px 14px;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.05);
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-   animation: sparkle 2s infinite;
+  color: #1a1a1a;
+  padding: 10px 0;           /* Reduce vertical padding */
+  text-align: center;
+  font-size: 1.7rem;         /* Increase font size */
+  line-height: 0.1;          /* Tighten line height */
+  font-weight: 900;
+  box-shadow: 0 2px 12px rgba(30, 64, 175, 0.08);
+  letter-spacing: 0.01em;
+  animation: sparkle 2s infinite;
+  animation-delay: 5s;
 }
  @keyframes sparkle {
         0%, 100% {
@@ -59,7 +102,22 @@ header {
         50% {
             text-shadow:2px 2px 4px rgba(170, 209, 231, 0.4), 2px 2px 4px rgba(170, 209, 231, 0.4), 2px 2px 4px rgba(170, 209, 231, 0.4);
         }
-    }
+}
+
+.sticky-banner a,
+.sticky-banner-link {
+  color: #fff;
+  text-decoration: underline;
+  font-weight: 600;
+  margin-left: 8px;
+  transition: color 0.2s;
+}
+
+.sticky-banner a:hover,
+.sticky-banner-link:hover {
+  color: #aaddff;
+  text-decoration: underline;
+}
 .search-bar input {
   width: 700px;
   max-width: 90vw;
@@ -74,20 +132,63 @@ header {
   border: 1.5px solid #0aa5e2;
   outline: none;
 }
+/* Hide mobile search bar on desktop */
+#mobile-search {
+  display: none;
+}
 
-.icons {
+/* Show mobile search bar only on small screens */
+@media (max-width: 768px) {
+  #desktop-search {
+    display: none;
+  }
+  #mobile-search {
+    display: block;
+  }
+  .search-bar {
   display: flex;
   align-items: center;
   gap: 18px;
 }
-.icons img {
+.search-bar {
+  width: 200px;
+  height: 48px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: box-shadow 0.2s;
+}
+.search-bar:hover {
+  box-shadow: 0 2px 8px #0aa5e233;
+}
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.logo {
+  width: 200px;
+  height: 48px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: box-shadow 0.2s;
+}
+.logo img:hover {
+  box-shadow: 0 2px 8px #0aa5e233;
+}
+.cart {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.cart img {
   width: 48px;
   height: 48px;
   cursor: pointer;
   border-radius: 50%;
   transition: box-shadow 0.2s;
 }
-.icons img:hover {
+.cart img:hover {
   box-shadow: 0 2px 8px #0aa5e233;
 }
 #cart-count {
@@ -108,84 +209,40 @@ header {
   padding: 32px 0;
 }
 
-.product-item {
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 150px;
-  padding: 6;
-  margin: 15px;
-  transition: opacity 0.3s ease; /* Smooth transition for hiding/showing */
-}
-.product-item:hover {
-  box-shadow: 0 4px 24px #0aa5e233;
-  transform: translateY(-4px) scale(1.03);
-}
-.product-item img {
-  width: 100%;
-  height: auto;
-   max-height: 200px; /* Restricts image height */
-   object-fit: cover; /* Ensures the image scales properly */
-  border-radius: 10px;
-  margin-bottom: 16px;
-}
-.product-item p {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #0aa5e2;
-  margin: 10px 0 8px 0;
-}
-.product-item button {
-  background: linear-gradient(90deg, #0aa5e2 0%, #0a7be2 100%);
-  color: #fff;
-  border: none;
-  padding: 12px 0;
-  width: 100%;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  margin-top: 8px;
-  transition: background 0.2s, box-shadow 0.2s;
-  box-shadow: 0 2px 8px #0aa5e233;
-}
-.product-item button:hover {
-  background: linear-gradient(90deg, #0a7be2 0%, #0aa5e2 100%);
+
+
+#cartModal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.5);
+    overflow: auto;
 }
 
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(30, 41, 59, 0.35);
-  backdrop-filter: blur(2px);
-}
-
-.modal-content {
-  background: #fff;
-  color: #1a1a1a;
-  margin: 5% auto;
-  padding: 32px 24px;
-  border-radius: 18px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-  width: 90%;
-  max-width: 480px;
+#cartModal .modal-content {
   position: relative;
+    background: white;
+    width: 90%;
+    max-width: 500px;
+    max-height: 80vh; /* Limits height */
+    margin: 10vh auto; /* Centers vertically */
+    padding: 20px;
+    border-radius: 10px;
 }
 
 .modal-content h2 {
   color: #0aa5e2;
+  position: relative; 
   text-align: center;
   margin-bottom: 24px;
   font-size: 1.5rem;
   font-weight: 700;
+    width: 90%;
+    max-width: 500px;
 }
 
 #cart-items {
@@ -211,7 +268,7 @@ header {
   color: #0aa5e2;
   font-size: 1.1rem;
   font-weight: 700;
-  text-align: right;
+  text-align: left;
   margin-bottom: 18px;
 }
 
@@ -240,6 +297,7 @@ header {
   font-weight: bold;
   cursor: pointer;
   transition: color 0.2s;
+  z-index: 1; 
 }
 .close:hover,
 .close:focus {
@@ -257,14 +315,11 @@ header {
     gap: 16px;
     padding: 12px 0;
   }
-}
-  
-  .product-item {
-    width: 75vw;
-    max-width: 320px;
-    padding: 10px 4px;
-  }
-  
+}   @media (max-width: 480px) {
+            .product-item {
+                width: 100%;
+            }
+        }
   .modal-content {
     padding: 10px 4px;
   }
@@ -303,11 +358,53 @@ header {
   margin-top: 50;
   align-self: center;
 }
+.hero-modern-card {
+  background: #f1f5f9;
+  border: 1.5px solid #e5e7eb;
+  box-shadow: 0 4px 24px #0aa5e233;
+  border-radius: 24px;
+  padding: 8px;
+  margin: 24px auto 0 auto;
+  max-width: 600px;
+  width: 100%;
+  animation: fadeInUp 1.2s 0.3s both;
+}
+.hero-modern-card-imgwrap {
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1.5px solid #e5e7eb;
+}
+.hero-modern-card-img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  display: block;
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+.hero-modern-quote {
+  font-style: italic;
+  color: #475569;
+  font-size: 1.08rem;
+  margin: 24px 0 0 0;
+  padding: 0 18px;
+  text-align: center;
+  line-height: 1.6;
+}
+.hero-modern-quote-author {
+  display: block;
+  margin-top: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0aa5e2;
+}
 /* Footer Styles */
 .site-footer {
   background: #0aa5e2;
   color: #fff;
-  padding: 48px 0 24px 0;
+  padding: 38px 0 14px 0;
   border-radius: 24px 24px 0 0;
   margin-top: 48px;
 }
@@ -318,8 +415,8 @@ header {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 50px;
-  padding: 0 24px;
+  gap: 70px;
+  padding: 0 10px;
 }
 
 .site-footer-section {
@@ -359,7 +456,7 @@ header {
 
 .site-footer-social {
   display: flex;
-  gap: 25px;
+  gap: 10px;
   margin-top: 8px;
 }
 
@@ -372,8 +469,8 @@ header {
 /* Footer Social Media Icon Styles */
 .site-footer-social a,
 .site-footer-social img {
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -389,7 +486,7 @@ header {
 
 .site-footer-social img {
   object-fit: cover;
-  padding: 4px;
+  padding: 2px;
 }
 
 .site-footer-social a:hover,
@@ -398,118 +495,373 @@ header {
   color: #fff;
   box-shadow: 0 4px 16px #0aa5e299;
 }
+/* === Mobile Styles === */
+        @media (max-width: 768px) {
+            /* Header */
+            .mobile-header {
+                display: flex;
+            }
+            
+            .desktop-header {
+                display: none;
+            }
+          }
+            
+            .hamburger.active span:nth-child(1) {
+                transform: translateY(10px) rotate(45deg);
+            }
+            
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active span:nth-child(3) {
+                transform: translateY(-10px) rotate(-45deg);
+            }
+            
+            .mobile-nav.active {
+                max-height: 500px;
+                padding: 15px;
+            }
+    .bg-gradient-card {
+  /* Gradient border effect */
+  background: linear-gradient(135deg, #0aa5e2 0%, #e0e7ef 100%);
+  padding: 3px;
+  border-radius: 22px;
+  max-width: 250px;
+  margin: 12px auto;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.08);
+}
 
+.bg-gradient-card-inner {
+  background: #fff;
+  border-radius: 20px;
+  padding: 24px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-    </style>
-</head>
+.bg-gradient-card-img {
+  width: 100%;
+  max-width: 250px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 18px;
+  background: #f8fafc;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 12px #0aa5e233;
+}
+
+.bg-gradient-card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.bg-gradient-card-desc {
+  font-size: 0.97rem;
+  color: #64748b;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.bg-gradient-card-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #111;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 8px 18px 8px 18px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 7px;
+  transition: background 0.2s;
+}
+
+.bg-gradient-card-btn:hover {
+  background: #0aa5e2;
+}
+
+.bg-gradient-card-price {
+  background: #64748b;
+  color: #fff;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  padding: 2px 10px;
+  margin-left: 4px;
+}
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 35px;
+  padding: 32px 0;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.product-item {
+  flex: 1 1 22%;         /* Four per row, responsive */
+  max-width: 250px;
+  min-width: 140px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+}
+.stars-bg-fullpage {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.stars-background {
+  position: absolute;
+  inset: 0;
+  background: #111827;
+  z-index: 1;
+}
+.stars-background::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background-image: 
+    repeating-radial-gradient(circle at 10% 20%, #fff 0 1px, transparent 1px 100%),
+    repeating-radial-gradient(circle at 80% 60%, #fff 0 1px, transparent 1px 100%),
+    repeating-radial-gradient(circle at 50% 90%, #fff 0 1px, transparent 1px 100%),
+    repeating-radial-gradient(circle at 70% 30%, #fff 0 1px, transparent 1px 100%),
+    repeating-radial-gradient(circle at 30% 70%, #fff 0 1px, transparent 1px 100%);
+  background-size: 100% 100%;
+  opacity: 0.6;
+}
+
+.shooting-stars {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+.shooting-stars::before,
+.shooting-stars::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 120px;
+  background: linear-gradient(180deg, #fff 0%, transparent 100%);
+  opacity: 0.7;
+  border-radius: 2px;
+  animation: shooting-star 2.5s linear infinite;
+}
+.shooting-stars::after {
+  left: 80%;
+  top: 10%;
+  animation-delay: 1.2s;
+}
+.shooting-stars::before {
+  left: 30%;
+  top: 40%;
+  animation-delay: 0.4s;
+}
+
+@keyframes shooting-star {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px) scaleX(1.2) scaleY(0.7) rotate(-15deg);
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(400px) scaleX(1.2) scaleY(0.7) rotate(-15deg);
+  }
+}
+
+</style>
 <body>
+<div class="stars-bg-fullpage">
+  <div class="stars-background"></div>
+  <div class="shooting-stars"></div>
+</div>
+        <div class="mobile-header">
+            <div class="logo">
+                <img src="Geokels.png" alt="Company Logo">
+            </div>
+           
+            <button class="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <nav class="mobile-nav">
+            <div class="search-bar">
+                <input type="text" id="search" placeholder="Search for clothing...">
+            </div>
+            <div class="mobile-links">
+                <a href="#">Home</a>
+                <a href="#">Shop</a>
+                <a href="#">Collections</a>
+                <a href="#" onclick="openCart()">Cart (<span id="mobile-cart-count">0</span>)</a>
+            </div>
+        </nav>
+
   <header>
-    <div class="logo">
-      <img src="Geokels.png" alt="Company Logo">
-    </div>
-    <div class="search-bar">
-      <input type="text" id="search" placeholder="Search for clothing...">
-    </div>
-    <div class="icons">
-      <div class="cart-icon" onclick="openCart()"></div>
-      <img src="Cartlogo.png" alt="Cart" title="View Cart" onclick="openCart()">
-      <span id="cart-count">0</span>
+    <div class="desktop-header">
+            <div class="logo">
+                <img src="Geokels.svg" alt="Company Logo">
+            </div>
+            <div class="search-bar">
+                <!-- Mobile -->
+<input type="text" id="mobile-search" placeholder="Search for clothing...">
+<div class="search-bar"></div>
+<!-- Desktop -->
+<input type="text" id="desktop-search" placeholder="Search for clothing...">
+            </div>
+            <div class="cart">
+                <img src="cart.svg" alt="Cart" title="View Cart" onclick="openCart()">
+                <span id="cart-count">0</span>
       <i class="fas fa-user user-icon"></i>
     </div>
   </header>
-  <div class="welcome-banner">
-    Welcome to Geokels Clothing
-  </div>
-  <div class="hero-section"id="heroSection">
+  <div class="sticky-banner">
+  <p>
+    Welcome to Geokels Clothing 
+    <a href="#" class="sticky-banner-link"></a>
+  </p>
+  
+</div>
+  <div class="hero-section" id="heroSection">
   <div class="video-background">
     <video autoplay loop muted playsinline>
-      <source src="./model video.mp4" type="video/mp4">
+      <source src="model video.mp4" type="video/mp4">
     </video>
   </div>
   <div class="hero-content">
-    <img src="./Photo1.png" alt="hero-content">
+    <img src="Photo1.png" alt="hero-content">
+  </div>
 </div>
+
+<!-- Modern Hero Card Below -->
+<div class="hero-modern-card">
+  <div class="hero-modern-card-imgwrap">
+<img src="card.avif" alt="Fashion clothing on hangers" class="hero-modern-card-img" />  </div>
+  <blockquote class="hero-modern-quote">
+    “Fashion is not something that exists in dresses only. Fashion is in the sky, in the street, fashion has to do with ideas, the way we live, what is happening.”
+    <span class="hero-modern-quote-author">— Coco Chanel</span>
+  </blockquote>
 </div>
-      <!-- Product Items -->
-       <div class="content">
-      <div class="product-item">
-        <img src="Sleeves5.jpg" alt="Sleeves5.jpg">
-        <p>Long Sleeves5 - ¢250</p>
-        <button onclick="addToCart('long sleeves', '250','Sleeves5.jpg')"> Add to Cart </button>
+     <!-- Product Items -->
+<div class="content">
+  <div class="product-item">
+    <div class="bg-gradient-card">
+      <div class="bg-gradient-card-inner">
+        <img src="Sleeves5.jpg" alt="Sleeves5.jpg" class="bg-gradient-card-img">
+        <p class="bg-gradient-card-title">Long Sleeve5</p>
+        <p class="bg-gradient-card-desc">Best Sleeves from USA</p>
+        <div class="bg-gradient-card-btn">
+          <button onclick="addToCart('long sleeves', '250','Sleeves5.jpg')">Add to Cart</button>
+          <span class="bg-gradient-card-price">¢250</span>
+        </div>
       </div>
-      
-      <!-- ...other product items... -->
-      <div class="product-item">
-        <img src="Sleeves4.jpg" alt="Sleeves4.jpg">
-        <p>Long Sleeve4 - ¢100</p>
-        <button onclick="addToCart('long sleeves','100','Sleeves4.jpg')"> Add to Cart </button>
+    </div>
+  </div>
+  <div class="product-item">
+    <div class="bg-gradient-card">
+      <div class="bg-gradient-card-inner">
+        <img src="Sleeves4.jpg" alt="Sleeves4.jpg" class="bg-gradient-card-img">
+        <p class="bg-gradient-card-title">Long Sleeve4</p>
+        <p class="bg-gradient-card-desc">Best Sleeves from USA</p>
+        <div class="bg-gradient-card-btn">
+          <button onclick="addToCart('long sleeves','100','Sleeves4.jpg')">Add to Cart</button>
+          <span class="bg-gradient-card-price">¢100</span>
+        </div>
       </div>
-      <div class="product-item">
-        <img src="Sleeves3.jpg" alt="Sleeves3.jpg.jpg">
-        <p>Sleeves3 - ¢100</p>
-        <button onclick="addToCart('Shoe','100','Sleeves3.jpg')"> Add to Cart </button>
+    </div>
+  </div>
+  <div class="product-item">
+    <div class="bg-gradient-card">
+      <div class="bg-gradient-card-inner">
+        <img src="Sleeves3.jpg" alt="Sleeves3.jpg" class="bg-gradient-card-img">
+        <p class="bg-gradient-card-title">Long Sleeve3</p>
+        <p class="bg-gradient-card-desc">Best Sleeves from USA</p>
+        <div class="bg-gradient-card-btn">
+          <button onclick="addToCart('long sleeves','100','Sleeves3.jpg')">Add to Cart</button>
+          <span class="bg-gradient-card-price">¢100</span>
+        </div>
       </div>
-      <div class="product-item">
-        <img src="Sleeves1.jpg" alt="Sleeves1.jpg">
-        <p>Sleeves1 - ¢100</p>
-        <button onclick="addToCart('Shoe','100','Sleeves1.jpg')"> Add to Cart </button>
+    </div>
+  </div>
+  <div class="product-item">
+    <div class="bg-gradient-card">
+      <div class="bg-gradient-card-inner">
+        <img src="Sleeves1.jpg" alt="Sleeves1.jpg" class="bg-gradient-card-img">
+        <p class="bg-gradient-card-title">Long Sleeve1</p>
+        <p class="bg-gradient-card-desc">Best Sleeves from USA</p>
+        <div class="bg-gradient-card-btn">
+          <button onclick="addToCart('long sleeves','100','Sleeves1.jpg')">Add to Cart</button>
+          <span class="bg-gradient-card-price">¢100</span>
+        </div>
       </div>
-      <div class="product-item">
-        <img src="Shoe1.jpg" alt="Shoe1.jpg">
-        <p>Shoe1 - ¢100</p>
-        <button onclick="addToCart('Shoe','100','Shoe1.jpg')"> Add to Cart </button>
+    </div>
+  </div>
+  <!-- Add more product-item blocks as needed -->
+ <div class="product-item">
+    <div class="bg-gradient-card">
+      <div class="bg-gradient-card-inner">
+        <img src="Shoe1.jpg" alt="Shoe1.jpg" class="bg-gradient-card-img">
+        <p class="bg-gradient-card-title">Shoe1</p>
+        <p class="bg-gradient-card-desc">Best Shoe from USA</p>
+        <div class="bg-gradient-card-btn">
+          <button onclick="addToCart('Shoe','100','Shoe1.jpg')">Add to Cart</button>
+          <span class="bg-gradient-card-price">¢100</span>
+        </div>
       </div>
-      <div class="product-item">
-        <img src="Shoe2.jpg" alt="Shoe2.jpg">
-        <p>Shoe2 - ¢100</p>
-        <button onclick="addToCart('Shoe','100','Shoe2.jpg')"> Add to Cart </button>
+    </div>
+  </div>
+     <div class="product-item">
+    <div class="bg-gradient-card">
+      <div class="bg-gradient-card-inner">
+        <img src="Shoe2.jpg" alt="Shoe2.jpg" class="bg-gradient-card-img">
+        <p class="bg-gradient-card-title">Shoe1</p>
+        <p class="bg-gradient-card-desc">Best Shoe from USA</p>
+        <div class="bg-gradient-card-btn">
+          <button onclick="addToCart('Shoe','100','Shoe2.jpg')">Add to Cart</button>
+          <span class="bg-gradient-card-price">¢100</span>
+        </div>
       </div>
-      <div class="product-item">
-        <img src="Shoe3.jpg" alt="Shoe3.jpg">
-        <p>Shoe3 - ¢100</p>
-        <button onclick="addToCart('Shoe','100','Shoe3.jpg')"> Add to Cart </button>
+    </div>
+  </div>
+    <div class="product-item">
+    <div class="bg-gradient-card">
+      <div class="bg-gradient-card-inner">
+        <img src="Shoe3.jpg" alt="Shoe3.jpg" class="bg-gradient-card-img">
+        <p class="bg-gradient-card-title">Shoe3</p>
+        <p class="bg-gradient-card-desc">Best Shoe from USA</p>
+        <div class="bg-gradient-card-btn">
+          <button onclick="addToCart('Shoe','100','Shoe3.jpg')">Add to Cart</button>
+          <span class="bg-gradient-card-price">¢100</span>
+        </div>
       </div>
+    </div>
+  </div>
       <!-- Add all your other product-item divs here -->
     </div>
   </div>
-  <!-- Account Modal -->
-  <div id="accountModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
-      <!-- Login Form -->
-      <div id="loginForm">
-        <h2>Sign In</h2>
-        <form id="login" style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
-          <input type="email" id="loginEmail" placeholder="Email" required style="width: 80%; padding: 12px;">
-          <input type="password" id="loginPassword" placeholder="Password" required style="width: 80%; padding: 12px;">
-          <button type="submit" style="width: 50%; padding: 12px; background-color: green; color: white; border: none; border-radius: 4px; cursor: pointer;">
-            Sign In
-          </button>
-          <p style="text-align: center; margin-top: 10px;">
-            Don't have an account? 
-            <a href="#" onclick="showSignup()" style="margin-top: 10px; color: green;">Sign up</a>
-          </p>
-        </form>
-      </div>
-      <!-- Signup Form (hidden by default) -->
-      <div id="signupForm" style="display:none;">
-        <h2>Create Account</h2>
-        <form id="signup">
-          <div style="display: grid; gap: 15px; margin-bottom: 15px;">
-            <input type="text" id="signupName" placeholder="Full Name" required style="padding: 12px;">
-            <input type="email" id="signupEmail" placeholder="Email" required style="padding: 12px;">
-            <input type="password" id="signupPassword" placeholder="Password" required style="padding: 12px;">
-            <input type="password" id="signupConfirm" placeholder="Confirm Password" required style="padding: 12px;">
-          </div>
-          <div style="display: flex; justify-content: flex-end;">
-            <button type="submit" style="padding: 12px 24px; background-color: green; color: white; border: none; border-radius: 4px; cursor: pointer;">
-              Create Account
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
+  
   <!-- Cart Modal -->
   <div id="cartModal" class="modal">
     <div class="modal-content">
@@ -525,6 +877,9 @@ header {
   <script src="auth.JS"></script>
   <script src="Open_Cart.JS"></script>
   <script src="Search bar.JS"></script>
+  <script src="Hamburger.js"></script>
+  
+
   <footer class="site-footer">
   <div class="site-footer-container">
     <!-- About Us -->
@@ -557,11 +912,11 @@ header {
     <div class="site-footer-section">
       <h3>Follow Us</h3>
       <div class="site-footer-social">
-        <img src="Facebook.png" aria-label="Facebook">
-        <img src="Instagram.png" aria-label="Instagram">
-        <img src="Tiktok.png" aria-label="Tiktok">
-        <img src="X.png" aria-label="X">
-        <img src="WhatsApp.png" WhatsApp="X">
+        <img src="Facebook.png"  alt="Facebook">
+        <img src="Instagram.png" alt="Instagram">
+        <img src="Tiktok.png" alt="Tiktok">
+        <img src="X.png" alt="X">
+        <img src="WhatsApp.png" alt="X">
 
       </div>
     </div>
