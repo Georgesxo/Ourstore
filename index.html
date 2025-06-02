@@ -3,10 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geokels</title>
+   <title>Geokels Clothing – Premium Fashion & Footwear in Ghana</title>
+    <!-- Basic Meta Tags -->
+<meta name="description" content="Geokels Clothing – Premium fashion wear and footwear in Ghana. Shop the latest trends online.">
+<meta name="keywords" content="Geokels, Geokels Clothing, fashion in Ghana, clothing store Ghana, online fashion, affordable clothes, men's fashion, local clothing brand">
+<meta name="author" content="Geokels Clothing">
+<link rel="canonical" href="https://geokelsclothing.com/"  />
+<a href="/sitemap.xml">Sitemap</a>
+
+<!-- Open Graph / Social Media Tags -->
+<meta property="og:title" content="Geokels Clothing – Fashion & Footwear Online Store">
+<meta property="og:description" content="Shop premium fashion wear and footwear from Geokels Clothing – Ghana's trusted online fashion destination.">
+<meta property="og:image" content="https://geokelsclothing.com/Geokels.png ">
+<meta property="og:url" content="https://geokelsclothing.com ">
+<meta property="og:type" content="website">
+   <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="manifest" href="site.webmanifest" />
+<!-- Swiper.js CSS -->
     <style>
      /* --- Modern Framer-inspired E-commerce Styles --- */
-
+     
+ 
 body {
             font-family: 'Inter', Arial, sans-serif;
             background: linear-gradient(120deg, #f8fafc 0%, #e0e7ef 100%);
@@ -15,82 +36,51 @@ body {
             margin: 0;
             padding: 0;
             padding-bottom: 60px; /* Prevent footer overlap */
-        }
-header {
-  background: #111827;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-            position: sticky;           
-            top: 0;
-            z-index: 1000;
-            transition: all 0.3s ease;
-            transform: translateZ(0); 
-            height: 80px;
-}
-            .mobile-header {
-            display: none;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 15px;
+            overflow-x: hidden; 
+            width:100%;
         }
 
-        .hamburger {
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 24px;
-            width: 30px;
-            padding: 0;
-        }
+          
 
-        .hamburger span {
-            display: block;
-            width: 100%;
-            height: 3px;
-            background: #0aa5e2;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-nav {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            background: white;
-            width: 100%;
-        }
-
-        .desktop-header {
+        .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 15px 20px;
+             background: #111827;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+            position: fixed;           
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            transform: translateZ(0); 
+            height: 50px;
+            width:100%;
         }
 
 
 .logo img {
-  width: 2000px;
-  height: 100px;
-  object-fit: contain;
+  width: 95px;
+  height: auto; /* Let height adjust proportionally */
+ 
 }
 
 
     
   .sticky-banner {
   position: sticky;
-  top: 80px;
+  top: 75px;
   transform: translateZ(0); 
-  z-index: 999;
-  width: 101%;
+  z-index: 1000;
+  width: 100%;
   background: linear-gradient(90deg, #e0e7ef 100%, #e0e7ef 100%);
   color: #1a1a1a;
-  padding: 10px 0;           /* Reduce vertical padding */
+  padding: 5px 0;           /* Reduce vertical padding */
   text-align: center;
   font-size: 1.7rem;         /* Increase font size */
   line-height: 0.1;          /* Tighten line height */
   font-weight: 900;
-  box-shadow: 0 2px 12px rgba(30, 64, 175, 0.08);
+  box-shadow: 0 2px 10px rgba(30, 64, 175, 0.08);
   letter-spacing: 0.01em;
   animation: sparkle 2s infinite;
   animation-delay: 5s;
@@ -140,26 +130,18 @@ header {
 /* Show mobile search bar only on small screens */
 @media (max-width: 768px) {
   #desktop-search {
-    display: none;
+    display: flex;
   }
   #mobile-search {
-    display: block;
+    display: flex;
   }
   .search-bar {
   display: flex;
   align-items: center;
   gap: 18px;
 }
-.search-bar {
-  width: 200px;
-  height: 48px;
-  cursor: pointer;
-  border-radius: 50%;
-  transition: box-shadow 0.2s;
-}
-.search-bar:hover {
-  box-shadow: 0 2px 8px #0aa5e233;
-}
+
+
 }
 .logo {
   display: flex;
@@ -171,26 +153,20 @@ header {
   height: 48px;
   cursor: pointer;
   border-radius: 50%;
-  transition: box-shadow 0.2s;
 }
-.logo img:hover {
-  box-shadow: 0 2px 8px #0aa5e233;
-}
+
 .cart {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 40px;
 }
 .cart img {
-  width: 48px;
-  height: 48px;
+  width: 55px;
+  height: 55px;
   cursor: pointer;
   border-radius: 50%;
-  transition: box-shadow 0.2s;
 }
-.cart img:hover {
-  box-shadow: 0 2px 8px #0aa5e233;
-}
+
 #cart-count {
   background: #0aa5e2;
   color: #fff;
@@ -198,14 +174,15 @@ header {
   font-weight: bold;
   border-radius: 50%;
   padding: 5px 10px;
-  margin-left: 5px;
+  margin-left:-30px;
+  gap:25px;
 }
 
 .content {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 32px;
+  gap:15px;
   padding: 32px 0;
 }
 
@@ -287,7 +264,21 @@ header {
 #checkout-btn:hover {
   background: linear-gradient(90deg, #0a7be2 0%, #0aa5e2 100%);
 }
-
+.cart-empty-message {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ef4444;
+  color: white;
+  padding: 5px 5px;
+  border-radius: 8px;
+  z-index: 1001;
+  text-align: center;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
 .close {
   color: #0aa5e2;
   position: absolute;
@@ -304,30 +295,10 @@ header {
   color: #0a7be2;
   text-decoration: none;
 }
-
-@media (max-width: 1000px) {
-  .welcome-banner {
-    font-size: 1.2rem;
-    padding: 40px 0;
-    border-radius: 0 0 18px 18px;
-  }
-  .content {
-    gap: 16px;
-    padding: 12px 0;
-  }
-}   @media (max-width: 480px) {
-            .product-item {
-                width: 100%;
-            }
-        }
-  .modal-content {
-    padding: 10px 4px;
-  }
 .hero-section {
   display: flex;
-  width: 100vw;
+  width: 100%;
   height: 700px; /* or 100vh for full screen */
-  overflow: hidden;
 }
 
 .video-background,
@@ -343,7 +314,7 @@ header {
 }
 
 .video-background video {
-  width: 100%;
+  width: 110%;
   height: 100%;
   object-fit: cover;
   display: block;
@@ -352,12 +323,13 @@ header {
 .hero-content img {
   width: 100%;
   max-width: 400px;
-  height: 110%;         /* Responsive height */
+  height: 95%;         /* Responsive height */
   object-fit: cover;
   border-radius: 16px;
   margin-top: 50;
   align-self: center;
 }
+
 .hero-modern-card {
   background: #f1f5f9;
   border: 1.5px solid #e5e7eb;
@@ -402,22 +374,39 @@ header {
 }
 /* Footer Styles */
 .site-footer {
-  background: #0aa5e2;
+  background: #111827;
   color: #fff;
   padding: 38px 0 14px 0;
   border-radius: 24px 24px 0 0;
-  margin-top: 48px;
+  margin-top: 100px; 
+  width: 100%;
+}
+html, body {
+  height: 100;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+body {
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
 }
 
 .site-footer-container {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 70px;
   padding: 0 10px;
+  width: 100%;
 }
+
 
 .site-footer-section {
   flex: 1 1 220px;
@@ -462,7 +451,7 @@ header {
 
 .site-footer-bottom {
   text-align: center;
-  margin-top: 32px;
+  margin-top: 10px;
   font-size: 0.95rem;
   color: #e0e7ef;
 }
@@ -495,77 +484,46 @@ header {
   color: #fff;
   box-shadow: 0 4px 16px #0aa5e299;
 }
-/* === Mobile Styles === */
-        @media (max-width: 768px) {
-            /* Header */
-            .mobile-header {
-                display: flex;
-            }
-            
-            .desktop-header {
-                display: none;
-            }
-          }
-            
-            .hamburger.active span:nth-child(1) {
-                transform: translateY(10px) rotate(45deg);
-            }
-            
-            .hamburger.active span:nth-child(2) {
-                opacity: 0;
-            }
-            
-            .hamburger.active span:nth-child(3) {
-                transform: translateY(-10px) rotate(-45deg);
-            }
-            
-            .mobile-nav.active {
-                max-height: 500px;
-                padding: 15px;
-            }
-    .bg-gradient-card {
-  /* Gradient border effect */
+.bg-gradient-card {
   background: linear-gradient(135deg, #0aa5e2 0%, #e0e7ef 100%);
-  padding: 3px;
-  border-radius: 22px;
-  max-width: 250px;
-  margin: 12px auto;
+  padding: 4px; /* Increased border padding */
+  border-radius: 24px; /* Larger border radius */
+  max-width: 200px; /* Increased max width */
+  margin: 10px 15px; /* Better horizontal spacing */
   box-shadow: 0 4px 32px rgba(0,0,0,0.08);
+  transition: transform 0.2s; /* Add hover effect */
+}
+
+.bg-gradient-card:hover {
+  transform: translateY(-5px); /* Subtle hover lift */
 }
 
 .bg-gradient-card-inner {
   background: #fff;
-  border-radius: 20px;
-  padding: 24px 20px 20px 20px;
+  border-radius: 22px; /* Matched larger radius */
+  padding: 10px; /* Increased padding */
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 2px; /* Added gap between elements */
 }
 
 .bg-gradient-card-img {
   width: 100%;
-  max-width: 250px;
-  height: 100px;
+  max-width: 280px; /* Larger image container */
+  height: 130px; /* Taller image area */
   object-fit: contain;
   border-radius: 18px;
   background: #f8fafc;
-  margin-bottom: 12px;
+  margin-bottom: 8px; /* Increased spacing */
   box-shadow: 0 2px 12px #0aa5e233;
 }
 
 .bg-gradient-card-title {
-  font-size: 1.2rem;
-  font-weight: 700;
+  font-size: 1.3rem; /* Larger text */
+  font-weight: 800; /* Bolder weight */
   color: #222;
-  margin-bottom: 5px;
-  text-align: center;
-}
-
-.bg-gradient-card-desc {
-  font-size: 0.97rem;
-  color: #64748b;
-  text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 8px; /* Increased spacing */
 }
 
 .bg-gradient-card-btn {
@@ -579,13 +537,9 @@ header {
   padding: 8px 18px 8px 18px;
   font-size: 0.95rem;
   font-weight: bold;
-  cursor: pointer;
   margin-top: 7px;
+   cursor: pointer;
   transition: background 0.2s;
-}
-
-.bg-gradient-card-btn:hover {
-  background: #0aa5e2;
 }
 
 .bg-gradient-card-price {
@@ -596,39 +550,106 @@ header {
   padding: 2px 10px;
   margin-left: 4px;
 }
-.content {
+
+
+.product-slider {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 35px;
-  padding: 32px 0;
+  gap: 40px; /* Larger gaps between items */
+  padding: 100px 30px; /* Better padding */
   max-width: 1400px;
   margin: 0 auto;
 }
 
 .product-item {
-  flex: 1 1 22%;         /* Four per row, responsive */
-  max-width: 250px;
-  min-width: 140px;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 12px;
-  box-sizing: border-box;
+  flex: 1 1 21%; /* Adjusted for larger cards */
+  max-width: 240px; /* Match card width */
+  min-width: 200px; /* Larger minimum size */
+  margin-bottom: 40px; /* Increased bottom spacing */
+}
+
+
+@media (max-width: 768px) {
+  .slider-wrapper {
+    overflow-x: auto;
+    display: flex;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 12px;
+    margin: 10px 0 20px 0; /* Adjusted top/bottom margins */
+  }
+
+  .slider-wrapper::-webkit-scrollbar {
+    height: 2px; /* Slightly thicker scrollbar */
+  }
+
+  .slider-wrapper::-webkit-scrollbar-thumb {
+    background: #0aa5e2; /* Brand color for scrollbar */
+  }
+
+  .product-slider {
+    display: flex;
+    gap: 20px; /* Increased gap between cards */
+    min-width: max-content;
+    flex-wrap: nowrap;
+    padding-bottom: 15px; /* Space for scrollbar */
+  }
+
+  .product-item {
+    flex: 0 0 200px; /* Slightly wider cards */
+    min-width: 200px;
+    max-width: 200px;
+    margin-bottom: 5px; /* Reduced bottom margin */
+    scroll-snap-align: start;
+  }
+
+  .bg-gradient-card {
+    width: 100%;
+    max-width: none;
+    margin: 0 5px; /* Horizontal spacing */
+    padding: 4px; /* Thicker gradient border */
+    border-radius: 24px; /* Larger radius */
+  }
+
+  .bg-gradient-card-inner {
+    padding: 20px; /* More internal padding */
+    gap: 12px; /* Consistent spacing between elements */
+  }
+
+  .bg-gradient-card-img {
+    height: 90px; /* Taller image container */
+    margin-bottom: 5px; /* More space below image */
+    margin-top: 5px;
+  }
+
+  .bg-gradient-card-title {
+    font-size: 1.1rem; /* Slightly larger text */
+    margin-bottom: 5px; /* Better spacing */
+    margin-top: 5px;
+  }
+
+  .bg-gradient-card-btn {
+    font-size: 0.9rem;
+    padding: 8px 16px; /* Slightly larger button */
+     margin-bottom: 5px; 
+    margin-top: 5px;
+  }
 }
 .stars-bg-fullpage {
   position: fixed;
   inset: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   z-index: -1;
   pointer-events: none;
-  overflow: hidden;
+  
 }
 
 .stars-background {
   position: absolute;
   inset: 0;
-  background: #111827;
+  background: linear-gradient(90deg, #e0e7ef 100%, #e0e7ef 100%);
   z-index: 1;
 }
 .stars-background::after {
@@ -689,50 +710,85 @@ header {
   }
 }
 
+@media (max-width: 768px) {
+  .full-width {
+  width: 100vw;
+  position: relative;
+  margin-left: calc(50% - 50vw);
+  box-sizing: border-box;
+}
+
+.site-footer {
+  width: 98%;
+  max-width: 100%;
+  margin: 0;
+  padding: 25px;
+  border-radius: 15px;
+}
+
+  .site-footer-container {
+    width: 100%;
+    max-width: 100%;
+    margin: auto;
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .site-footer-section {
+    flex: 1 1 100%;
+    min-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .site-footer-section h3 {
+    font-size: 1.0rem;
+    margin-bottom: 10px;
+  }
+
+  .site-footer-section p,
+  .site-footer-section li {
+    font-size: 0.9rem;
+  }
+
+  .site-footer-social {
+    justify-content: flex-start;
+  }
+
+  .site-footer-social img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .site-footer-bottom {
+    font-size: 0.8rem;
+    margin-top: 5px;
+  }
+}
+
 </style>
 <body>
 <div class="stars-bg-fullpage">
   <div class="stars-background"></div>
   <div class="shooting-stars"></div>
 </div>
-        <div class="mobile-header">
-            <div class="logo">
-                <img src="Geokels.png" alt="Company Logo">
-            </div>
-           
-            <button class="hamburger" aria-label="Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-
-        <nav class="mobile-nav">
-            <div class="search-bar">
-                <input type="text" id="search" placeholder="Search for clothing...">
-            </div>
-            <div class="mobile-links">
-                <a href="#">Home</a>
-                <a href="#">Shop</a>
-                <a href="#">Collections</a>
-                <a href="#" onclick="openCart()">Cart (<span id="mobile-cart-count">0</span>)</a>
-            </div>
-        </nav>
-
+        
   <header>
-    <div class="desktop-header">
+    <div class="header">
             <div class="logo">
-                <img src="Geokels.svg" alt="Company Logo">
+                <img src="Geokels.png" alt="Company Logo" loading="lazy">
             </div>
             <div class="search-bar">
-                <!-- Mobile -->
-<input type="text" id="mobile-search" placeholder="Search for clothing...">
-<div class="search-bar"></div>
-<!-- Desktop -->
 <input type="text" id="desktop-search" placeholder="Search for clothing...">
             </div>
+         
+           
+
+
             <div class="cart">
-                <img src="cart.svg" alt="Cart" title="View Cart" onclick="openCart()">
+                <img src="cart.png" alt="Cart" title="View Cart" onclick="openCart()"  loading="lazy">
                 <span id="cart-count">0</span>
       <i class="fas fa-user user-icon"></i>
     </div>
@@ -747,141 +803,143 @@ header {
   <div class="hero-section" id="heroSection">
   <div class="video-background">
     <video autoplay loop muted playsinline>
-      <source src="model video.mp4" type="video/mp4">
+      <source src="model video.mp4" type="video/mp4" loading="lazy">
     </video>
   </div>
   <div class="hero-content">
-    <img src="Photo1.png" alt="hero-content">
+    <img src="Photo1.png" alt="hero-content" loading="lazy">
   </div>
 </div>
 
 <!-- Modern Hero Card Below -->
 <div class="hero-modern-card">
   <div class="hero-modern-card-imgwrap">
-<img src="card.avif" alt="Fashion clothing on hangers" class="hero-modern-card-img" />  </div>
+<img src="card.avif" alt="Fashion clothing on hangers" class="hero-modern-card-img" loading="lazy">  
+</div>
   <blockquote class="hero-modern-quote">
     “Fashion is not something that exists in dresses only. Fashion is in the sky, in the street, fashion has to do with ideas, the way we live, what is happening.”
     <span class="hero-modern-quote-author">— Coco Chanel</span>
   </blockquote>
 </div>
      <!-- Product Items -->
-<div class="content">
-  <div class="product-item">
+<!-- START OF SWIPER PRODUCT SLIDER (Mobile Only) -->
+<div class="slider-wrapper">
+  <div class="product-slider">
+       <div class="product-item">
     <div class="bg-gradient-card">
       <div class="bg-gradient-card-inner">
-        <img src="Sleeves5.jpg" alt="Sleeves5.jpg" class="bg-gradient-card-img">
+        <img src="Sleeves5.jpg" alt="Sleeves5.jpg" class="bg-gradient-card-img" loading="lazy">
         <p class="bg-gradient-card-title">Long Sleeve5</p>
-        <p class="bg-gradient-card-desc">Best Sleeves from USA</p>
         <div class="bg-gradient-card-btn">
-          <button onclick="addToCart('long sleeves', '250','Sleeves5.jpg')">Add to Cart</button>
+          <button onclick="addToCart('long sleeves', '250','Sleeves5.jpg')">Buy</button>
           <span class="bg-gradient-card-price">¢250</span>
-        </div>
+      </div>
+      </div>
       </div>
     </div>
-  </div>
   <div class="product-item">
     <div class="bg-gradient-card">
       <div class="bg-gradient-card-inner">
-        <img src="Sleeves4.jpg" alt="Sleeves4.jpg" class="bg-gradient-card-img">
+        <img src="Sleeves4.jpg" alt="Sleeves4.jpg" class="bg-gradient-card-img" loading="lazy">
         <p class="bg-gradient-card-title">Long Sleeve4</p>
-        <p class="bg-gradient-card-desc">Best Sleeves from USA</p>
         <div class="bg-gradient-card-btn">
-          <button onclick="addToCart('long sleeves','100','Sleeves4.jpg')">Add to Cart</button>
+          <button onclick="addToCart('long sleeves','100','Sleeves4.jpg')">Buy</button>
           <span class="bg-gradient-card-price">¢100</span>
         </div>
-      </div>
+       </div>
     </div>
   </div>
-  <div class="product-item">
-    <div class="bg-gradient-card">
-      <div class="bg-gradient-card-inner">
-        <img src="Sleeves3.jpg" alt="Sleeves3.jpg" class="bg-gradient-card-img">
-        <p class="bg-gradient-card-title">Long Sleeve3</p>
-        <p class="bg-gradient-card-desc">Best Sleeves from USA</p>
-        <div class="bg-gradient-card-btn">
-          <button onclick="addToCart('long sleeves','100','Sleeves3.jpg')">Add to Cart</button>
-          <span class="bg-gradient-card-price">¢100</span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="product-item">
-    <div class="bg-gradient-card">
-      <div class="bg-gradient-card-inner">
-        <img src="Sleeves1.jpg" alt="Sleeves1.jpg" class="bg-gradient-card-img">
-        <p class="bg-gradient-card-title">Long Sleeve1</p>
-        <p class="bg-gradient-card-desc">Best Sleeves from USA</p>
-        <div class="bg-gradient-card-btn">
-          <button onclick="addToCart('long sleeves','100','Sleeves1.jpg')">Add to Cart</button>
-          <span class="bg-gradient-card-price">¢100</span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Add more product-item blocks as needed -->
  <div class="product-item">
     <div class="bg-gradient-card">
       <div class="bg-gradient-card-inner">
-        <img src="Shoe1.jpg" alt="Shoe1.jpg" class="bg-gradient-card-img">
-        <p class="bg-gradient-card-title">Shoe1</p>
-        <p class="bg-gradient-card-desc">Best Shoe from USA</p>
+        <img src="Sleeves3.jpg" alt="Sleeves3.jpg" class="bg-gradient-card-img" loading="lazy">
+         <p class="bg-gradient-card-title">Long Sleeve3</p>
         <div class="bg-gradient-card-btn">
-          <button onclick="addToCart('Shoe','100','Shoe1.jpg')">Add to Cart</button>
+          <button onclick="addToCart('long sleeves','100','Sleeves3.jpg')">Buy</button>
+          <span class="bg-gradient-card-price">¢100</span>
+        </div>
+      </div>
+       </div>
+    </div>
+ <div class="product-item">
+    <div class="bg-gradient-card">
+      <div class="bg-gradient-card-inner">
+        <img src="Sleeves1.jpg" alt="Sleeves1.jpg" class="bg-gradient-card-img" loading="lazy">
+        <p class="bg-gradient-card-title">Long Sleeve1</p>
+        <div class="bg-gradient-card-btn">
+          <button onclick="addToCart('long sleeves','100','Sleeves1.jpg')">Buy</button>
+          <span class="bg-gradient-card-price">¢100</span>
+        </div>
+         </div>
+      </div>
+    </div>
+  <!-- Add more product-item blocks as needed -->
+  <div class="product-item">
+    <div class="bg-gradient-card">
+      <div class="bg-gradient-card-inner">
+        <img src="Shoe1.jpg" alt="Shoe1.jpg" class="bg-gradient-card-img" loading="lazy">
+        <p class="bg-gradient-card-title">Shoe1</p>
+        <div class="bg-gradient-card-btn">
+          <button onclick="addToCart('Shoe','100','Shoe1.jpg')">Buy</button>
           <span class="bg-gradient-card-price">¢100</span>
         </div>
       </div>
     </div>
-  </div>
-     <div class="product-item">
+     </div>
+  <div class="product-item">
     <div class="bg-gradient-card">
       <div class="bg-gradient-card-inner">
-        <img src="Shoe2.jpg" alt="Shoe2.jpg" class="bg-gradient-card-img">
-        <p class="bg-gradient-card-title">Shoe1</p>
-        <p class="bg-gradient-card-desc">Best Shoe from USA</p>
+        <img src="Shoe2.jpg" alt="Shoe2.jpg" class="bg-gradient-card-img" loading="lazy">
+        <p class="bg-gradient-card-title">Shoe2</p>
         <div class="bg-gradient-card-btn">
-          <button onclick="addToCart('Shoe','100','Shoe2.jpg')">Add to Cart</button>
+          <button onclick="addToCart('Shoe','100','Shoe2.jpg')">Buy</button>
           <span class="bg-gradient-card-price">¢100</span>
         </div>
       </div>
+       </div>
     </div>
-  </div>
-    <div class="product-item">
+  <div class="product-item">
     <div class="bg-gradient-card">
       <div class="bg-gradient-card-inner">
-        <img src="Shoe3.jpg" alt="Shoe3.jpg" class="bg-gradient-card-img">
+        <img src="Shoe3.jpg" alt="Shoe3.jpg" class="bg-gradient-card-img" loading="lazy">
         <p class="bg-gradient-card-title">Shoe3</p>
-        <p class="bg-gradient-card-desc">Best Shoe from USA</p>
         <div class="bg-gradient-card-btn">
-          <button onclick="addToCart('Shoe','100','Shoe3.jpg')">Add to Cart</button>
+          <button onclick="addToCart('Shoe','100','Shoe3.jpg')">Buy</button>
           <span class="bg-gradient-card-price">¢100</span>
         </div>
       </div>
+       </div>
     </div>
   </div>
-      <!-- Add all your other product-item divs here -->
-    </div>
-  </div>
-  
+ </div>
+
+
+
   <!-- Cart Modal -->
   <div id="cartModal" class="modal">
     <div class="modal-content">
-      <span class="close" onclick="closeCart()">&times;</span>
+      <span class="close" onclick="closeCart()"  >&times;</span>
       <h2>Your Shopping Cart</h2>
       <div id="cart-items">
         <!-- Cart items will be dynamically inserted here -->
       </div>
       <div id="cart-total">Total: ¢0</div>
-      <button id="checkout-btn" onclick="goToCheckout()">Proceed to Checkout</button>
+      <button id="checkout-btn" onclick="goToCheckout()" >Proceed to Order</button>
     </div>
   </div>
+  
+  <!-- Empty Cart Warning -->
+<div id="cart-empty-message" class="cart-empty-message" style="display: none;">
+  <p>Your cart is empty. Please add items before proceeding.</p>
+</div>
+
   <script src="auth.JS"></script>
   <script src="Open_Cart.JS"></script>
-  <script src="Search bar.JS"></script>
-  <script src="Hamburger.js"></script>
-  
-
-  <footer class="site-footer">
-  <div class="site-footer-container">
+  <script src="Search_bar.JS"></script>
+ 
+<div class="full-width">
+  <footer class="site-footer" loading="lazy">
+  <div class="site-footer-container"loading="lazy">
     <!-- About Us -->
     <div class="site-footer-section">
       <h3>About Us</h3>
@@ -893,9 +951,8 @@ header {
     <div class="site-footer-section">
       <h3>Contact Us</h3>
       <ul>
-        <li>Email: info@geokels.com</a></li>
-        <li>Phone: +1 234 567 890</a></li>
-        <li>Address: 123 Fashion Ave, Accra, Ghana</li>
+        <li>Phone  1: +233 59377 8377</a></li>
+        <li>Phone  2: +233 54634 3416</a></li>
       </ul>
     </div>
     <!-- Quick Links -->
@@ -925,5 +982,363 @@ header {
     &copy; 2025 Geokels Clothing. All rights reserved.
   </div>
 </footer>
+<script>
+// Mobile-specific styles that will be applied directly to elements
+document.addEventListener('DOMContentLoaded', function() {
+  // Only apply on mobile devices
+  if (window.innerWidth <= 768) {
+    // Header fixes
+    const header = document.querySelector('header');
+    if (header) {
+      header.style.height = '25px';
+      header.style.display = 'flex';
+      header.style.padding = '5px';
+      header.style.justifyContent = 'center';
+      header.style.alignItems = 'center';
+    }
+    
+    // Logo sizing
+    const logo = document.querySelector('.logo');
+    if (logo) {
+      logo.style.width = '100px';
+      logo.style.maxWidth = '100px';
+      
+      const logoImg = logo.querySelector('img');
+      if (logoImg) {
+        logoImg.style.width = '50px';
+        logoImg.style.height = '50px';
+        logoImg.style.marginLeft = '30px';
+        
+      }
+    }
+
+    // Search bar width
+    const searchBar = document.querySelector('.search-bar');
+    if (searchBar) {
+      searchBar.style.flex = '1';
+      searchBar.style.margin =  '30px';
+      searchBar.style.maxWidth = '100%';
+       searchBar.style.padding = '2px';
+      
+      const searchInput = searchBar.querySelector('input');
+      if (searchInput) {
+        searchInput.style.width = '80%';
+        searchInput.style.fontSize = '0.8rem';
+      }
+    }
+    
+    // Cart positioning
+    const cart = document.querySelector('.cart');
+    if (cart) {
+      cart.style.display = 'flex';
+      cart.style.alignItems = 'right';
+      cart.style.marginRight = '-50px';
+      cart.style.cursor = 'pointer';
+      
+      const cartImg = cart.querySelector('img');
+      if (cartImg) {
+        cartImg.style.width = '50px';
+        cartImg.style.height = '50px';
+      }
+      
+      const cartCount = document.getElementById('cart-count');
+      if (cartCount) {
+        cartCount.style.marginLeft = '-45px';
+      }
+    }
+    
+    // Hero section
+    const heroSection = document.querySelector('.hero-section');
+    if (heroSection) {
+      heroSection.style.height = '350px';
+      heroSection.style.display = 'flex';
+      heroSection.style.justifyContent = 'center';
+      heroSection.style.alignItems = 'center';
+      heroSection.style.width = '110%';
+      
+      const videoBackground = heroSection.querySelector('.video-background');
+      const heroContent = heroSection.querySelector('.hero-content');
+      
+      if (videoBackground) {
+        videoBackground.style.flex = '1 1 50%';
+        videoBackground.style.display = 'flex';
+        videoBackground.style.justifyContent = 'center';
+        videoBackground.style.alignItems = 'center';
+      }
+      
+      if (heroContent) {
+        heroContent.style.flex = '1 1 50%';
+        heroContent.style.display = 'flex';
+        heroContent.style.justifyContent = 'center';
+        heroContent.style.alignItems = 'center';
+        
+        const heroImg = heroContent.querySelector('img');
+        if (heroImg) {
+          heroImg.style.maxHeight = '95%';
+          heroImg.style.maxWidth = '500px';
+          heroImg.style.Width = '95%';
+
+        }
+      }
+    }
+    
+    // Hero card
+    const heroCard = document.querySelector('.hero-modern-card');
+    if (heroCard) {
+      heroCard.style.maxWidth = '60%';
+      heroCard.style.padding = '5px';
+
+      const cardImgWrap = heroCard.querySelector('.hero-modern-card-imgwrap');
+      if (cardImgWrap) {
+        cardImgWrap.style.maxHeight = '100%';
+        cardImgWrap.style.overflow = 'hidden';
+
+      }
+      
+      const cardImg = heroCard.querySelector('.hero-modern-card-img');
+      if (cardImg) {
+        cardImg.style.maxHeight = '100%';
+        cardImg.style.width = '100%';
+
+
+      }
+    }
+    
+    // Product flex 2 per row
+    const content = document.querySelector('.content');
+    if (content) {
+      content.style.display = 'flex';
+      content.style.flex = 'repeat(2, 1fr)';
+      content.style.gap = '40px';
+
+      const productItems = document.querySelectorAll('.product-item');
+      productItems.forEach(item => {
+        item.style.width = '100%';
+        item.style.margin = '10px 10x 10px 10px';
+        
+        
+        
+        const card = item.querySelector('.bg-gradient-card');
+        if (card) {
+          card.style.maxWidth = '100%';
+        }
+      });
+    }
+  }
+});
+// Add this to your existing inline JavaScript or as a new script tag
+document.addEventListener('DOMContentLoaded', function() {
+  // Only apply on mobile devices
+  if (window.innerWidth <= 768) {
+    // Sticky banner width fix
+    const stickyBanner = document.querySelector('.sticky-banner');
+    if (stickyBanner) {
+      // Set width and positioning
+      stickyBanner.style.width = '110%';
+      stickyBanner.style.left = '100px';
+      stickyBanner.style.right = '100px';
+      stickyBanner.style.boxSizing = 'border-box';
+      
+      // Adjust top position to account for mobile header
+      stickyBanner.style.top = '70px'; // Adjust this value based on your mobile header height
+      
+      // Ensure text is centered and sized appropriately
+      stickyBanner.style.textAlign = 'center';
+      stickyBanner.style.fontSize = '1.4rem';
+      stickyBanner.style.padding = '10px 10px';
+      
+      // Make sure it spans full width
+      stickyBanner.style.maxWidth = '120%';
+      
+      // Ensure it's visible above other content
+      stickyBanner.style.zIndex = '1000';
+    }
+  }
+});
+// Add this to your existing inline JavaScript or as a new script tag
+// Updated mobile cart styling that preserves functionality
+document.addEventListener('DOMContentLoaded', function() {
+  // Only apply on mobile devices
+  if (window.innerWidth <= 768) {
+    // Cart Modal Styling for Mobile
+    const cartModal = document.getElementById('cartModal');
+    if (cartModal) {
+      // Ensure modal covers full screen
+      cartModal.style.width = '100%';
+      cartModal.style.height = '100%';
+      
+      // Style the modal content for mobile
+      const modalContent = cartModal.querySelector('.modal-content');
+      if (modalContent) {
+        modalContent.style.width = '50%';
+        modalContent.style.maxWidth = '350px';
+        modalContent.style.margin = '15% auto';
+        modalContent.style.padding = '15px';
+        modalContent.style.borderRadius = '10px';
+        modalContent.style.maxHeight = '50vh';
+        modalContent.style.overflow = 'auto';
+      }
+      
+      // Style the modal header
+      const modalHeader = cartModal.querySelector('.modal-content h2');
+      if (modalHeader) {
+        modalHeader.style.fontSize = '1.0rem';
+        modalHeader.style.marginBottom = '15px';
+        modalHeader.style.width = '100%';
+        modalHeader.style.textAlign = 'center';
+      }
+      
+      // Style the close button
+      const closeButton = cartModal.querySelector('.close');
+      if (closeButton) {
+        closeButton.style.top = '10px';
+        closeButton.style.right = '15px';
+        closeButton.style.fontSize = '1.8rem';
+      }
+      
+      // Style the cart items container
+      const cartItems = document.getElementById('cart-items');
+      if (cartItems) {
+        cartItems.style.maxHeight = '200px';
+        cartItems.style.overflowY = 'auto';
+        cartItems.style.marginBottom = '15px';
+        
+        // IMPORTANT: We're NOT using MutationObserver anymore as it interferes with the cart functionality
+        // Instead, we'll hook into the updateCartUI function to apply mobile styling
+        
+        // Create a backup of the original updateCartUI function
+        if (!window.originalUpdateCartUI && window.updateCartUI) {
+          window.originalUpdateCartUI = window.updateCartUI;
+          
+          // Override updateCartUI to add mobile styling after cart is updated
+          window.updateCartUI = function() {
+            // Call the original function first
+            window.originalUpdateCartUI.apply(this, arguments);
+            
+            // Then apply mobile styling to the newly created elements
+            if (window.innerWidth <= 768) {
+              const items = document.querySelectorAll('.cart-item');
+              items.forEach(item => {
+                // Style each cart item
+                item.style.display = 'flex';
+                item.style.alignItems = 'center';
+                item.style.marginBottom = '10px';
+                item.style.padding = '5px';
+                
+                // Style the item image
+                const img = item.querySelector('img');
+                if (img) {
+                  img.style.width = '50px';
+                  img.style.height = '50px';
+                  img.style.objectFit = 'cover';
+                  img.style.marginRight = '10px';
+                  img.style.borderRadius = '5px';
+                }
+                
+                // Style the item text
+                const h3 = item.querySelector('h3');
+                if (h3) {
+                  h3.style.margin = '0';
+                  h3.style.fontSize = '10px';
+                }
+                
+                const p = item.querySelector('p');
+                if (p) {
+                  p.style.margin = '3px 0';
+                  p.style.fontSize = '10px';
+                }
+                
+                // Style the remove button but DO NOT modify its onclick attribute
+                // This is crucial to preserve the two-parameter removeFromCart function
+                const button = item.querySelector('button');
+                if (button) {
+                  button.style.padding = '2px 5px';
+                  button.style.fontSize = '9px';
+                }
+              });
+              
+              // Ensure checkout button styling preserves disabled state
+              const checkoutBtn = document.getElementById('checkout-btn');
+              if (checkoutBtn) {
+                checkoutBtn.style.padding = '3px 0';
+                checkoutBtn.style.fontSize = '1rem';
+                
+                // Preserve disabled state styling
+                if (checkoutBtn.disabled) {
+                  checkoutBtn.style.opacity = '0.6';
+                  checkoutBtn.style.cursor = 'not-allowed';
+                } else {
+                  checkoutBtn.style.opacity = '1';
+                  checkoutBtn.style.cursor = 'pointer';
+                }
+              }
+              
+              // Style the cart total
+              const cartTotal = document.getElementById('cart-total');
+              if (cartTotal) {
+                cartTotal.style.fontSize = '1rem';
+                cartTotal.style.marginBottom = '15px';
+              }
+            }
+          };
+        }
+      }
+    }
+  }
+  
+  // Add window resize handler to reapply styles when switching between desktop and mobile
+  window.addEventListener('resize', function() {
+    if (window.updateCartUI) {
+      window.updateCartUI();
+    }
+  });
+});
+
+// Optional: Smooth scroll behavior for iOS
+  document.querySelector('.slider-wrapper')?.addEventListener('scroll', () => {
+    // You can add analytics or lazy loading logic here
+  });
+  document.addEventListener('DOMContentLoaded', function () {
+    const content = document.querySelector('.content');
+    const swiperWrapper = document.querySelector('.swiper-wrapper');
+
+    function toggleLayout() {
+      if (window.innerWidth <= 768) {
+        if (content) content.style.display = 'none';
+        if (swiperWrapper) swiperWrapper.style.display = 'block';
+      } else {
+        if (content) content.style.display = 'flex';
+        if (swiperWrapper) swiperWrapper.style.display = 'none';
+      }
+    }
+
+    toggleLayout();
+    window.addEventListener('resize', toggleLayout);
+  });
+ // Function to update cart count immediately on page load
+  function updateCartCountOnLoad() {
+    const cookie = document.cookie
+      .split('; ')
+      .find(row => row.startsWith('geokels_cart='));
+
+    if (!cookie) return;
+
+    try {
+      const cart = JSON.parse(decodeURIComponent(cookie.split('=')[1]));
+      const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+      const cartCountElement = document.getElementById('cart-count');
+
+      if (cartCountElement) {
+        cartCountElement.textContent = totalItems;
+      }
+    } catch (e) {
+      console.error("Failed to parse cart from cookie:", e);
+    }
+  }
+
+  // Run on page load
+  window.addEventListener('DOMContentLoaded', updateCartCountOnLoad);
+
+</script>
 </body>
 </html>
