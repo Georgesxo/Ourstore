@@ -506,6 +506,8 @@ main {
   flex-direction: column;
   align-items: center;
   gap: 2px; /* Added gap between elements */
+   overflow: hidden;
+  position: relative;
 }
 
 .bg-gradient-card-img {
@@ -517,10 +519,13 @@ main {
   background: #f8fafc;
   margin-bottom: 8px; /* Increased spacing */
   box-shadow: 0 2px 12px #0aa5e233;
+  display: inline-block;
+  transition: transform 0.3s ease;
+  transform-origin: center center;
 }
 
 .bg-gradient-card-title {
-  font-size: 1.3rem; /* Larger text */
+  font-size: 0.90rem; /* Larger text */
   font-weight: 800; /* Bolder weight */
   color: #222;
   margin-bottom: 8px; /* Increased spacing */
@@ -557,7 +562,7 @@ main {
   flex-wrap: wrap;
   justify-content: center;
   gap: 40px; /* Larger gaps between items */
-  padding: 100px 30px; /* Better padding */
+  padding: 10px; /* Better padding */
   max-width: 1400px;
   margin: 0 auto;
 }
@@ -566,9 +571,8 @@ main {
   flex: 1 1 21%; /* Adjusted for larger cards */
   max-width: 240px; /* Match card width */
   min-width: 200px; /* Larger minimum size */
-  margin-bottom: 40px; /* Increased bottom spacing */
+  margin-bottom: 10px; /* Increased bottom spacing */
 }
-
 
 @media (max-width: 768px) {
   .slider-wrapper {
@@ -576,76 +580,86 @@ main {
     display: flex;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
-    padding: 0 12px;
-    margin: 10px 0 20px 0; /* Adjusted top/bottom margins */
+    padding: 1px;
+    margin: 0;
+    scroll-margin: 10;
+    margin: 2px ;
+    scroll-padding-left: 5px;
+     width: 100vw;
+     left: 0;
+    right: 0;
+    padding-right: 30px;
   }
 
   .slider-wrapper::-webkit-scrollbar {
-    height: 2px; /* Slightly thicker scrollbar */
+    height: 3px;
   }
 
   .slider-wrapper::-webkit-scrollbar-thumb {
-    background: #0aa5e2; /* Brand color for scrollbar */
+    background: #0aa5e2;
   }
 
   .product-slider {
     display: flex;
-    gap: 20px; /* Increased gap between cards */
+    gap: 20px;
     min-width: max-content;
     flex-wrap: nowrap;
-    padding-bottom: 15px; /* Space for scrollbar */
-  }
+    padding-bottom: 1px;
+    padding-top: 1px;
+    padding-left: 24px; /* Adds space on the left */
+    margin-right: 24px;
+   }
 
   .product-item {
-    flex: 0 0 200px; /* Slightly wider cards */
+     flex: 0 0 calc(48% - 10px);
     min-width: 200px;
     max-width: 200px;
-    margin-bottom: 5px; /* Reduced bottom margin */
+    margin-bottom: 1px;
     scroll-snap-align: start;
   }
 
   .bg-gradient-card {
     width: 100%;
     max-width: none;
-    margin: 0 5px; /* Horizontal spacing */
-    padding: 4px; /* Thicker gradient border */
-    border-radius: 24px; /* Larger radius */
+    margin: 10px;
+    padding: 3px;
+    border-radius: 24px;
   }
 
   .bg-gradient-card-inner {
-    padding: 20px; /* More internal padding */
-    gap: 12px; /* Consistent spacing between elements */
+    padding: 30px;
+    gap: 6px;
   }
 
   .bg-gradient-card-img {
-    height: 90px; /* Taller image container */
-    margin-bottom: 5px; /* More space below image */
+    height: 90px;
+    margin-bottom: 5px;
     margin-top: 5px;
   }
 
   .bg-gradient-card-title {
-    font-size: 1.1rem; /* Slightly larger text */
-    margin-bottom: 5px; /* Better spacing */
+    font-size: 0.90rem;
+    margin-bottom: 5px;
     margin-top: 5px;
   }
 
   .bg-gradient-card-btn {
     font-size: 0.9rem;
-    padding: 8px 16px; /* Slightly larger button */
-     margin-bottom: 5px; 
+    padding: 8px 16px;
+    margin-bottom: 5px;
     margin-top: 5px;
   }
 }
 .stars-bg-fullpage {
   position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100vh;
+  top: 0;
+  left: 0;
+  width: 110vw;
+  height: 110vh;
   z-index: -1;
+  overflow: hidden;
   pointer-events: none;
-  
 }
-
 .stars-background {
   position: absolute;
   inset: 0;
@@ -767,7 +781,16 @@ main {
     margin-top: 5px;
   }
 }
+ .zoomable {
+    cursor: zoom-in;
+    transition: transform 0.3s ease;
+    transform-origin: center center;
+  }
 
+  .zoomed-in {
+    transform: scale(2); /* Adjust scale as needed */
+    cursor: zoom-out;
+  }
 </style>
 <body>
 <div class="stars-bg-fullpage">
@@ -824,95 +847,214 @@ main {
      <!-- Product Items -->
 <!-- START OF SWIPER PRODUCT SLIDER (Mobile Only) -->
 <div class="slider-wrapper">
-  <div class="product-slider">
+  <div class="product-slider"  id="desktop-product-grid">
+       <div class="product-item" >
+    <div class="bg-gradient-card">
+      <div class="bg-gradient-card-inner">
+        <img src="Fendi Bag.jpg" alt="Fendi Bag.jpg" class="bg-gradient-card-img" loading="lazy">
+        <p class="bg-gradient-card-title">Fendi Bag</p>
+        <div class="bg-gradient-card-btn">
+          <button onclick="addToCart('Fendi Bag.jpg', '100','Fendi Bag.jpg')">Buy</button>
+          <span class="bg-gradient-card-price">¢100</span>
+      </div>
+      </div>
+      </div>
+    </div>
        <div class="product-item">
     <div class="bg-gradient-card">
       <div class="bg-gradient-card-inner">
-        <img src="Sleeves5.jpg" alt="Sleeves5.jpg" class="bg-gradient-card-img" loading="lazy">
-        <p class="bg-gradient-card-title">Long Sleeve5</p>
+        <img src="Fendi.jpg" alt="Fendi.jpg" class="bg-gradient-card-img" loading="lazy">
+        <p class="bg-gradient-card-title">Fendi Bag</p>
         <div class="bg-gradient-card-btn">
-          <button onclick="addToCart('long sleeves', '250','Sleeves5.jpg')">Buy</button>
-          <span class="bg-gradient-card-price">¢250</span>
+          <button onclick="addToCart('Fendi.jpg', '100','Fendi.jpg')">Buy</button>
+          <span class="bg-gradient-card-price">¢100</span>
       </div>
       </div>
       </div>
     </div>
-  <div class="product-item">
+    <div class="product-item">
     <div class="bg-gradient-card">
       <div class="bg-gradient-card-inner">
-        <img src="Sleeves4.jpg" alt="Sleeves4.jpg" class="bg-gradient-card-img" loading="lazy">
-        <p class="bg-gradient-card-title">Long Sleeve4</p>
+        <img src="Gucci .jpg" alt="Gucci .jpg" class="bg-gradient-card-img" loading="lazy">
+        <p class="bg-gradient-card-title">Gucci Bag</p>
         <div class="bg-gradient-card-btn">
-          <button onclick="addToCart('long sleeves','100','Sleeves4.jpg')">Buy</button>
+          <button onclick="addToCart('Gucci .jpg', '100','Gucci .jpg')">Buy</button>
           <span class="bg-gradient-card-price">¢100</span>
-        </div>
-       </div>
-    </div>
-  </div>
- <div class="product-item">
-    <div class="bg-gradient-card">
-      <div class="bg-gradient-card-inner">
-        <img src="Sleeves3.jpg" alt="Sleeves3.jpg" class="bg-gradient-card-img" loading="lazy">
-         <p class="bg-gradient-card-title">Long Sleeve3</p>
-        <div class="bg-gradient-card-btn">
-          <button onclick="addToCart('long sleeves','100','Sleeves3.jpg')">Buy</button>
-          <span class="bg-gradient-card-price">¢100</span>
-        </div>
       </div>
-       </div>
-    </div>
- <div class="product-item">
-    <div class="bg-gradient-card">
-      <div class="bg-gradient-card-inner">
-        <img src="Sleeves1.jpg" alt="Sleeves1.jpg" class="bg-gradient-card-img" loading="lazy">
-        <p class="bg-gradient-card-title">Long Sleeve1</p>
-        <div class="bg-gradient-card-btn">
-          <button onclick="addToCart('long sleeves','100','Sleeves1.jpg')">Buy</button>
-          <span class="bg-gradient-card-price">¢100</span>
-        </div>
-         </div>
+      </div>
       </div>
     </div>
-  <!-- Add more product-item blocks as needed -->
-  <div class="product-item">
+     <div class="product-item">
     <div class="bg-gradient-card">
       <div class="bg-gradient-card-inner">
-        <img src="Shoe1.jpg" alt="Shoe1.jpg" class="bg-gradient-card-img" loading="lazy">
-        <p class="bg-gradient-card-title">Shoe1</p>
+        <img src="Hermes Black (S-42).jpg" alt="Hermes Black (S-42).jpg" class="bg-gradient-card-img" loading="lazy">
+        <p class="bg-gradient-card-title">Hermes Shoe B(42)</p>
         <div class="bg-gradient-card-btn">
-          <button onclick="addToCart('Shoe','100','Shoe1.jpg')">Buy</button>
-          <span class="bg-gradient-card-price">¢100</span>
-        </div>
+          <button onclick="addToCart('Hermes Black (S-42).jpg', '500','Hermes Black (S-42).jpg')">Buy</button>
+          <span class="bg-gradient-card-price">500</span>
       </div>
+      </div>
+      </div>
+    </div>
+     <div class="product-item">
+    <div class="bg-gradient-card">
+      <div class="bg-gradient-card-inner">
+        <img src="Jeans Short-(Size 36).jpg" alt="Jeans Short-(Size 36).jpg" class="bg-gradient-card-img" loading="lazy">
+        <p class="bg-gradient-card-title">Jeans Short(S-36)</p>
+        <div class="bg-gradient-card-btn">
+          <button onclick="addToCart('Jeans Short-(Size 36).jpg', '100','Jeans Short-(Size 36).jpg')">Buy</button>
+          <span class="bg-gradient-card-price">¢100</span>
+      </div>
+      </div>
+      </div>
+    </div>
+     <div class="product-item">
+    <div class="bg-gradient-card">
+      <div class="bg-gradient-card-inner">
+        <img src="Louis Vuitton  Coffee (S-45).jpg" alt="Louis Vuitton  Coffee (S-45).jpg" class="bg-gradient-card-img" loading="lazy">
+        <p class="bg-gradient-card-title">L-Vuitton Shoe(S-45)</p>
+        <div class="bg-gradient-card-btn">
+          <button onclick="addToCart('Louis Vuitton  Coffee (S-45).jpg', '500','Louis Vuitton  Coffee (S-45).jpg')">Buy</button>
+          <span class="bg-gradient-card-price">¢500</span>
+      </div>
+      </div>
+      </div>
+    </div>
+     <div class="product-item">
+    <div class="bg-gradient-card">
+      <div class="bg-gradient-card-inner">
+        <img src="Louis Vuitton .jpg" alt="Louis Vuitton .jpg" class="bg-gradient-card-img" loading="lazy">
+        <p class="bg-gradient-card-title">L-Vuitton Bag</p>
+        <div class="bg-gradient-card-btn">
+          <button onclick="addToCart('Louis Vuitton', '80','Louis Vuitton .jpg')">Buy</button>
+          <span class="bg-gradient-card-price">¢80</span>
+      </div>
+      </div>
+      </div>
+    </div>
+     <div class="product-item">
+    <div class="bg-gradient-card">
+      <div class="bg-gradient-card-inner">
+        <img src="Louis Vuitton Black(Size-45).jpg" alt="Louis Vuitton Black(Size-45).jpg" class="bg-gradient-card-img" loading="lazy">
+        <p class="bg-gradient-card-title">L-Vuitton Shoe(S-45)</p>
+        <div class="bg-gradient-card-btn">
+          <button onclick="addToCart('Louis Vuitton Bkack(Size-45)', '500','Louis Vuitton Bkack(Size-45).jpg')">Buy</button>
+          <span class="bg-gradient-card-price">¢500</span>
+      </div>
+      </div>
+      </div>
+    </div>
+     <div class="product-item">
+    <div class="bg-gradient-card">
+      <div class="bg-gradient-card-inner">
+        <img src="Louis Vuitton .jpg" alt="Louis Vuitton.jpg" class="bg-gradient-card-img" loading="lazy">
+        <p class="bg-gradient-card-title">L-Vuitton Bag</p>
+        <div class="bg-gradient-card-btn">
+          <button onclick="addToCart('Louis Vuitton', '80','Louis Vuitton .jpg')">Buy</button>
+          <span class="bg-gradient-card-price">¢80</span>
+      </div>
+      </div>
+      </div>
+    </div>
+     <div class="product-item">
+    <div class="bg-gradient-card">
+      <div class="bg-gradient-card-inner">
+        <img src="Louis Vuitton Black(Size-45).jpg" alt="Louis Vuitton Black(Size-45).jpg" class="bg-gradient-card-img" loading="lazy">
+        <p class="bg-gradient-card-title">Louis Vuitton(Size-45)</p>
+        <div class="bg-gradient-card-btn">
+          <button onclick="addToCart('Louis Vuitton Black(Size-45)', '500','Louis Vuitton Black(Size-45).jpg')">Buy</button>
+          <span class="bg-gradient-card-price">¢500</span>
+      </div>
+      </div>
+      </div>
+    </div>
+     <div class="product-item">
+    <div class="bg-gradient-card">
+      <div class="bg-gradient-card-inner">
+        <img src="Louis Vuitton.jpg" alt="Louis Vuitton.jpg" class="bg-gradient-card-img" loading="lazy">
+        <p class="bg-gradient-card-title">Louis Vuitton</p>
+        <div class="bg-gradient-card-btn">
+          <button onclick="addToCart('Louis Vuitton', '80','Louis Vuitton.jpg')">Buy</button>
+          <span class="bg-gradient-card-price">¢80</span>
+      </div>
+      </div>
+      </div>
+    </div>
+    <div class="product-item">
+    <div class="bg-gradient-card">
+      <div class="bg-gradient-card-inner">
+        <img src="Shirt (L)..jpg" alt="Shirt (L)..jpg" class="bg-gradient-card-img" loading="lazy">
+        <p class="bg-gradient-card-title">Shirt (L)</p>
+        <div class="bg-gradient-card-btn">
+          <button onclick="addToCart('Shirt (L)', '80','Shirt (L)..jpg')">Buy</button>
+          <span class="bg-gradient-card-price">¢80</span>
+      </div>
+      </div>
+      </div>
+    </div>
+     <div class="product-item">
+    <div class="bg-gradient-card">
+      <div class="bg-gradient-card-inner">
+        <img src="Shirt (L).jpg" alt="Shirt (L).jpg" class="bg-gradient-card-img" loading="lazy">
+        <p class="bg-gradient-card-title">Shirt (L)</p>
+        <div class="bg-gradient-card-btn">
+          <button onclick="addToCart('Shirt (L)', '80','Shirt (L).jpg')">Buy</button>
+          <span class="bg-gradient-card-price">¢80</span>
+      </div>
+      </div>
+      </div>
+    </div>
+      <div class="product-item">
+    <div class="bg-gradient-card">
+      <div class="bg-gradient-card-inner">
+        <img src="Shirt (XL).jpg" alt="Shirt (XL).jpg" class="bg-gradient-card-img" loading="lazy">
+        <p class="bg-gradient-card-title">Shirt (XL).jpg</p>
+        <div class="bg-gradient-card-btn">
+          <button onclick="addToCart('Shirt (XL)', '80','Shirt (XL).jpg')">Buy</button>
+          <span class="bg-gradient-card-price">¢80</span>
+      </div>
+      </div>
+      </div>
+    </div>
+     <div class="product-item">
+    <div class="bg-gradient-card">
+      <div class="bg-gradient-card-inner">
+        <img src="Shirt(2XL)..jpg" alt="Shirt(2XL)..jpg" class="bg-gradient-card-img" loading="lazy">
+        <p class="bg-gradient-card-title">Shirt(2XL)</p>
+        <div class="bg-gradient-card-btn">
+          <button onclick="addToCart('Shirt(2XL)', '80','Shirt(2XL)..jpg')">Buy</button>
+          <span class="bg-gradient-card-price">¢80</span>
+      </div>
+      </div>
+      </div>
+    </div>
+     <div class="product-item">
+    <div class="bg-gradient-card">
+      <div class="bg-gradient-card-inner">
+        <img src="Shirt(2XL).jpg" alt="Men's Shirt(2XL).jpg" class="bg-gradient-card-img" loading="lazy">
+        <p class="bg-gradient-card-title">Shirt(2XL)</p>
+        <div class="bg-gradient-card-btn">
+          <button onclick="addToCart('Shirt(2XL)', '80','Shirt(2XL).jpg')">Buy</button>
+          <span class="bg-gradient-card-price">¢80</span>
+      </div>
+      </div>
+      </div>
+    </div>
+     <div class="product-item">
+    <div class="bg-gradient-card">
+      <div class="bg-gradient-card-inner">
+        <img src="Shirt(L)..jpg" alt="Mens Shirt(L)..jpg" class="bg-gradient-card-img" loading="lazy">
+        <p class="bg-gradient-card-title">Shirt(L)</p>
+        <div class="bg-gradient-card-btn">
+          <button onclick="addToCart('Shirt(L)', '80','Shirt(L)..jpg')">Buy</button>
+          <span class="bg-gradient-card-price">¢80</span>
+      </div>
+      </div>
+      </div>
+    </div>
     </div>
      </div>
-  <div class="product-item">
-    <div class="bg-gradient-card">
-      <div class="bg-gradient-card-inner">
-        <img src="Shoe2.jpg" alt="Shoe2.jpg" class="bg-gradient-card-img" loading="lazy">
-        <p class="bg-gradient-card-title">Shoe2</p>
-        <div class="bg-gradient-card-btn">
-          <button onclick="addToCart('Shoe','100','Shoe2.jpg')">Buy</button>
-          <span class="bg-gradient-card-price">¢100</span>
-        </div>
-      </div>
-       </div>
-    </div>
-  <div class="product-item">
-    <div class="bg-gradient-card">
-      <div class="bg-gradient-card-inner">
-        <img src="Shoe3.jpg" alt="Shoe3.jpg" class="bg-gradient-card-img" loading="lazy">
-        <p class="bg-gradient-card-title">Shoe3</p>
-        <div class="bg-gradient-card-btn">
-          <button onclick="addToCart('Shoe','100','Shoe3.jpg')">Buy</button>
-          <span class="bg-gradient-card-price">¢100</span>
-        </div>
-      </div>
-       </div>
-    </div>
-  </div>
- </div>
-
+<div class="mobile-product-container"></div>
 
 
   <!-- Cart Modal -->
@@ -1294,29 +1436,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-// Optional: Smooth scroll behavior for iOS
-  document.querySelector('.slider-wrapper')?.addEventListener('scroll', () => {
-    // You can add analytics or lazy loading logic here
-  });
-  document.addEventListener('DOMContentLoaded', function () {
-    const content = document.querySelector('.content');
-    const swiperWrapper = document.querySelector('.swiper-wrapper');
-
-    function toggleLayout() {
-      if (window.innerWidth <= 768) {
-        if (content) content.style.display = 'none';
-        if (swiperWrapper) swiperWrapper.style.display = 'block';
-      } else {
-        if (content) content.style.display = 'flex';
-        if (swiperWrapper) swiperWrapper.style.display = 'none';
-      }
-    }
-
-    toggleLayout();
-    window.addEventListener('resize', toggleLayout);
-  });
- // Function to update cart count immediately on page load
-  function updateCartCountOnLoad() {
+ function updateCartCountOnLoad() {
     const cookie = document.cookie
       .split('; ')
       .find(row => row.startsWith('geokels_cart='));
@@ -1338,7 +1458,70 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Run on page load
   window.addEventListener('DOMContentLoaded', updateCartCountOnLoad);
+   document.querySelectorAll('.bg-gradient-card-img').forEach(img => {
+    img.classList.add('zoomable');
+    img.dataset.zoom = '1';
 
+    img.addEventListener('click', function (e) {
+      const currentScale = parseFloat(this.dataset.zoom);
+      const newScale = currentScale >= 2 ? 1 : currentScale + 0.5;
+      
+      this.style.transform = `scale(${newScale})`;
+      this.dataset.zoom = newScale;
+      this.classList.toggle('zoomed-in', newScale > 1);
+    });
+  });
+ 
+ document.addEventListener('DOMContentLoaded', function () {
+  const desktopSlider = document.querySelector('#desktop-product-grid');
+  const mobileContainer = document.querySelector('.mobile-product-container'); // Create this div if not exists
+
+  if (!desktopSlider) return;
+
+  const items = Array.from(desktopSlider.querySelectorAll('.product-item'));
+
+  function updateLayout() {
+    // Clear mobile container
+    if (!mobileContainer) return;
+
+    mobileContainer.innerHTML = '';
+
+    if (window.innerWidth <= 768) {
+      // On mobile: group into rows of 6 items
+      for (let i = 0; i < items.length; i += 6) {
+        const wrapper = document.createElement('div');
+        wrapper.classList.add('slider-wrapper');
+
+        const slider = document.createElement('div');
+        slider.classList.add('product-slider');
+        slider.style.gap = '20px';
+
+        const rowItems = items.slice(i, i + 6);
+        rowItems.forEach(item => {
+          const clone = item.cloneNode(true);
+          clone.querySelector('.bg-gradient-card').style.maxWidth = '200px';
+          slider.appendChild(clone);
+        });
+
+        wrapper.appendChild(slider);
+        mobileContainer.appendChild(wrapper);
+      }
+
+      // Hide desktop grid
+      desktopSlider.style.display = 'none';
+    } else {
+      // On desktop: show as grid
+      desktopSlider.style.display = 'flex';
+      desktopSlider.style.flexWrap = 'wrap';
+      desktopSlider.style.justifyContent = 'center';
+    }
+  }
+
+  // Run layout toggle
+  updateLayout();
+  window.addEventListener('resize', updateLayout);
+});
+ 
 </script>
 </body>
 </html>
